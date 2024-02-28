@@ -22,8 +22,11 @@ jobs:
     - name: Install dependencies
       run: composer install
 
-    - name: Install PHPUnit
-      run: composer global require phpunit/phpunit
+    - name: Add Composer bin directory to PATH
+      run: echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+
+    - name: Debug PHPUnit installation
+      run: ls -la ~/.composer/vendor/bin
 
     - name: Lint PHP files
       run: php -l .
