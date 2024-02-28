@@ -2,7 +2,7 @@
     "name": "usama/blog",
     "description": "A simple blog application",
     "require": {
-        "php": "^8.0"
+        "php": "^8.2.16"
         
     }
 }
