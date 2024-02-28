@@ -1,0 +1,8 @@
+{
+    "name": "usama/blog",
+    "description": "A simple blog application",
+    "require": {
+        "php": "^7.4"
+        
+    }
+}
