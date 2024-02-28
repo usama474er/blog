@@ -3,5 +3,6 @@
     "description": "A simple blog application",
     "require": {
         "php": "^8.2.15" 
+        
     }
 }
