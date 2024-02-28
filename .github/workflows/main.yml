@@ -1,0 +1,29 @@
+name: PHP CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint_and_test:
+    name: Linting and Testing
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+
+    - name: Install dependencies
+      run: composer install
+
+    - name: Lint PHP files
+      run: php -l .
+
+    - name: Run PHPUnit tests
+      run: phpunit
