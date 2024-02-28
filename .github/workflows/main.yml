@@ -19,20 +19,20 @@ jobs:
       with:
         php-version: '8.2.16'
 
-    - name: Install dependencies
-      run: composer install
+    - name: Install Composer dependencies
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+        php -r "unlink('composer-setup.php');"
+
+    - name: Install PHPUnit
+      run: composer require --dev phpunit/phpunit
 
     - name: Verify PHPUnit installation
-      run: ~/.composer/vendor/bin/phpunit --version
-
-    - name: Add Composer bin directory to PATH
-      run: echo "$HOME/.config/composer/vendor/bin" >> $GITHUB_PATH
-
-    - name: Debug PHPUnit installation
-      run: ls -la ~/.composer/vendor/bin
+      run: vendor/bin/phpunit --version
 
     - name: Lint PHP files
       run: php -l .
 
     - name: Run PHPUnit tests
-      run: phpunit
+      run: vendor/bin/phpunit
