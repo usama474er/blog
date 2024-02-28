@@ -25,6 +25,5 @@ jobs:
     - name: Lint PHP files
       run: php -l .
 
-
     - name: Run PHPUnit tests
-      run: ~/.composer/vendor/bin/phpunit
+      run: phpunit
