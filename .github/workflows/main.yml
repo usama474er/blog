@@ -22,8 +22,11 @@ jobs:
     - name: Install dependencies
       run: composer install
 
+    - name: Verify PHPUnit installation
+      run: ~/.composer/vendor/bin/phpunit --version
+
     - name: Add Composer bin directory to PATH
-      run: echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+      run: echo "$HOME/.config/composer/vendor/bin" >> $GITHUB_PATH
 
     - name: Debug PHPUnit installation
       run: ls -la ~/.composer/vendor/bin
@@ -32,4 +35,4 @@ jobs:
       run: php -l .
 
     - name: Run PHPUnit tests
-      run: ~/.composer/vendor/bin/phpunit
+      run: phpunit
