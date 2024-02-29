@@ -52,4 +52,4 @@ jobs:
         docker inspect alimcs98/php-app:myapp
 
     - name: Push Docker image to Docker Hub
-      run: docker push alimcs98/php-app:latest
+      run: docker push alimcs98/php-app:myapp
