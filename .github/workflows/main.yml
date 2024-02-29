@@ -13,9 +13,24 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2.16'
+    - name: Install Composer dependencies
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+        php -r "unlink('composer-setup.php');"
+    - name: Install PHPUnit
+      run: composer require --dev phpunit/phpunit
+    - name: Verify PHPUnit installation
+      run: vendor/bin/phpunit --version
+    - name: Lint PHP files
+      run: php -l .
 
-    # Steps for linting, testing, and possibly building the application...
-
+    - name: Run PHPUnit tests
+      run: vendor/bin/phpunit ExampleTest.php
   build_docker_image:
     name: Build Docker Image
     runs-on: ubuntu-latest
