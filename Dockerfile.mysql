@@ -1,0 +1,14 @@
+# Use the official MySQL image
+FROM mysql:5.6.27
+
+# Set default authentication plugin for MySQL
+CMD ["--default-authentication-plugin=mysql_native_password"]
+
+# Set MySQL root password
+ENV MYSQL_ROOT_PASSWORD shroot
+
+# Expose MySQL port
+EXPOSE 3306
+
+# Mount the directory with SQL scripts
+VOLUME ./mysql-scripts:/docker-entrypoint-initdb.d
