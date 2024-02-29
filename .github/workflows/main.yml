@@ -30,6 +30,11 @@ jobs:
     - name: Build Docker image
       run: docker build . --file dockerfile -t alimcs98/php-app:latest
 
+    - name: Build sql
+      run: docker build . --file Dockerfile.mysql -t db
+    - name: Build phpadmin
+      run: docker build . --file Dockerfile.phpmyadmin -t phpadmin
+
     - name: List Docker Images
       run: docker images
       
