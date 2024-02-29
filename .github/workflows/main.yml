@@ -46,5 +46,10 @@ jobs:
         username: alimcs98
         password: Mcs@12345
 
+    - name: Print Docker Image Details
+      run: |
+        docker images
+        docker inspect alimcs98/php-app:latest
+
     - name: Push Docker image to Docker Hub
       run: docker push alimcs98/php-app:latest
