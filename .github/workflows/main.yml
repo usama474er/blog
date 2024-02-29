@@ -52,3 +52,7 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push alimcs98/php-app:latest
+    - name: Push Docker mysql  image to Docker Hub
+      run: docker push alimcs98/php-app:db
+    - name: Push Docker phpadmin  image to Docker Hub
+      run: docker push alimcs98/php-app:phpadmin
