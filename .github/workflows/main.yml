@@ -44,7 +44,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         username: alimcs98
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        password: Mcs@12345
 
     - name: Push Docker image to Docker Hub
       run: docker push alimcs98/php-app:latest
